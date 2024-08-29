@@ -63,9 +63,6 @@ allACPImages = document.querySelectorAll(selectors.ACPImages),
 allWoodImages = document.querySelectorAll(selectors.WoodImages);
 
 
-const IP = 100; // Replace 100 with your desired base price for interiors
-const EP = 50;  // Replace 50 with your desired base price for exteriors
-
 
 
 
@@ -152,11 +149,11 @@ for (const e of radioButtonsForWood)
     } FinalValuesForExterior.wdm = a, updateImageByType("wdm", a.value), updatePageTotal2(), updateQueryParams()
 }));
 const updatePageTotal = () => {
-    let e = 0 + IP;
+    let e = 500;
     return "" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
 },
 updatePageTotal2 = () => {
-    let e = 0 + EP;
+    let e = 600;
     return "" !== FinalValuesForExterior.acpm.price && (e += parseFloat(FinalValuesForExterior.acpm.price)), "" !== FinalValuesForExterior.wdm.price && (e += parseFloat(FinalValuesForExterior.wdm.price)), PageTotal2Ele.innerText = e?.toFixed(2), e
 },
 updateQueryParams = () => {
