@@ -163,7 +163,7 @@ const updatePageTotal = () => {
     return "" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
 },
 updatePageTotal2 = () => {
-    let e = exteriorPrice;
+    let e = updatePageTotal();
     return "" !== FinalValuesForExterior.acpm.price && (e += parseFloat(FinalValuesForExterior.acpm.price)), "" !== FinalValuesForExterior.wdm.price && (e += parseFloat(FinalValuesForExterior.wdm.price)), PageTotal2Ele.innerText = e?.toFixed(2), e
 },
 updateQueryParams = () => {
@@ -293,7 +293,7 @@ updateAppState = (e, a, t, r, o) => {
     })), updatePageTotal(), updatePageTotal2()
 },
 updateGrandTotalNHiddenInputs = () => {
-    const e = updatePageTotal() + updatePageTotal2();
+    const e = updatePageTotal2();
     GrandTotalEle.innerText = e?.toFixed(2), grandTotalInputEle.value = e?.toFixed(2), urlInputEle.value = window.location.href;
     const {
         cm: a,
