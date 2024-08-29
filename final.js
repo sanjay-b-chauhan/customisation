@@ -71,7 +71,9 @@ const exteriorElement = document.querySelector('[base-price="exterior-price"]');
 const interiorPrice = parseFloat(interiorElement.getAttribute('data-price')); // 150
 const exteriorPrice = parseFloat(exteriorElement.getAttribute('data-price')); // 200
 
-
+// Log or use the values as needed
+console.log('Interior Price:', interiorPrice); // Outputs: 150
+console.log('Exterior Price:', exteriorPrice); // Outputs: 200
 
 
 
