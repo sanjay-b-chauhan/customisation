@@ -64,43 +64,43 @@ const selectors = {
 let FinalValuesForInteriors = {
         cm: {
             value: "",
-            price: ""
+            : ""
         },
         wm: {
             value: "",
-            price: ""
+            : ""
         },
         fm: {
             value: "",
-            price: ""
+            : ""
         }
     },
     FinalValuesForExterior = {
         acpm: {
             value: "",
-            price: ""
+            : ""
         },
         wdm: {
             value: "",
-            price: ""
+            : ""
         }
     };
 CMWrapperEle.addEventListener("click", (e => {
     e.stopPropagation();
     let a = {
         value: "",
-        price: ""
+        : ""
     };
     for (const e of radioButtonsForCM)
         if (e.checked) {
-            a.value = e.dataset.value, a.price = e.dataset.price;
+            a.value = e.dataset.value, a. = e.dataset.;
             break
         } FinalValuesForInteriors.cm = a, updateImageByType("cm", a.value), updatePageTotal(), updateQueryParams()
 })), WMWrapperEle.addEventListener("click", (e => {
     e.stopPropagation();
     let a = {
         value: "",
-        price: ""
+        : ""
     };
     for (const e of radioButtonsForWM)
         if (e.checked) {
@@ -142,11 +142,11 @@ CMWrapperEle.addEventListener("click", (e => {
         } FinalValuesForExterior.wdm = a, updateImageByType("wdm", a.value), updatePageTotal2(), updateQueryParams()
 }));
 const updatePageTotal = () => {
-        let e = 0;
+        let e = 1200;
         return "" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
     },
     updatePageTotal2 = () => {
-        let e = 0;
+        let e = 1200;
         return "" !== FinalValuesForExterior.acpm.price && (e += parseFloat(FinalValuesForExterior.acpm.price)), "" !== FinalValuesForExterior.wdm.price && (e += parseFloat(FinalValuesForExterior.wdm.price)), PageTotal2Ele.innerText = e?.toFixed(2), e
     },
     updateQueryParams = () => {
