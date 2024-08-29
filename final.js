@@ -63,6 +63,14 @@ allACPImages = document.querySelectorAll(selectors.ACPImages),
 allWoodImages = document.querySelectorAll(selectors.WoodImages);
 
 
+// Select elements using attribute selectors
+const interiorElement = document.querySelector('[base-price="interior-price"]');
+const exteriorElement = document.querySelector('[base-price="exterior-price"]');
+
+// Get the data-price values
+const interiorPrice = parseFloat(interiorElement.getAttribute('data-price')); // 150
+const exteriorPrice = parseFloat(exteriorElement.getAttribute('data-price')); // 200
+
 
 
 
@@ -149,11 +157,11 @@ for (const e of radioButtonsForWood)
     } FinalValuesForExterior.wdm = a, updateImageByType("wdm", a.value), updatePageTotal2(), updateQueryParams()
 }));
 const updatePageTotal = () => {
-    let e = 500;
+    let e = interiorPrice;
     return "" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
 },
 updatePageTotal2 = () => {
-    let e = 600;
+    let e = exteriorPrice;
     return "" !== FinalValuesForExterior.acpm.price && (e += parseFloat(FinalValuesForExterior.acpm.price)), "" !== FinalValuesForExterior.wdm.price && (e += parseFloat(FinalValuesForExterior.wdm.price)), PageTotal2Ele.innerText = e?.toFixed(2), e
 },
 updateQueryParams = () => {
