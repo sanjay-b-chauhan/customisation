@@ -29,11 +29,10 @@ const selectors = {
         urlInput: 'input[name="product-url"]',
         grandTotalInput: 'input[name="product-total-price"]',
         interiorInput: 'input[name="interior"]',
-        exteriorInput: 'input[name="exterior"]',
-        BASE_PRICE_INTERIOR: "[base-price=interior-price]", // Replace 100 with your desired base price for interiors
-        BASE_PRICE_EXTERIOR: "[base-price=exterior-price]",  // Replace 50 with your desired base price for exteriors
+        exteriorInput: 'input[name="exterior"]';
 
     },
+        
     TabsWrapperEle = document.querySelector(selectors.TabsWrapper),
     PopupTabsEle = document.querySelector(selectors.PopupTabsWrapper),
     CMWrapperEle = document.querySelector(selectors.CMWrapper),
@@ -64,6 +63,14 @@ const selectors = {
     allFMImages = document.querySelectorAll(selectors.FloorImages),
     allACPImages = document.querySelectorAll(selectors.ACPImages),
     allWoodImages = document.querySelectorAll(selectors.WoodImages);
+    // Select elements using attribute selectors
+const interiorElement = document.querySelector('[base-price="interior-price"]');
+const exteriorElement = document.querySelector('[base-price="exterior-price"]');
+
+// Get the data-price values
+const interiorPrice = parseFloat(interiorElement.getAttribute('data-price')); // 150
+const exteriorPrice = parseFloat(exteriorElement.getAttribute('data-price')); // 200
+
 let FinalValuesForInteriors = {
         cm: {
             value: "",
@@ -145,11 +152,13 @@ CMWrapperEle.addEventListener("click", (e => {
         } FinalValuesForExterior.wdm = a, updateImageByType("wdm", a.value), updatePageTotal2(), updateQueryParams()
 }));
 const updatePageTotal = () => {
-        let e = "BASE_PRICE_INTERIOR";
+        let e = 0 ;
+        e += interiorPrice;
         return "" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
     },
     updatePageTotal2 = () => {
-        let e = "BASE_PRICE_EXTERIOR";
+        let e = 0;
+        e += exteriorPrice;
         return "" !== FinalValuesForExterior.acpm.price && (e += parseFloat(FinalValuesForExterior.acpm.price)), "" !== FinalValuesForExterior.wdm.price && (e += parseFloat(FinalValuesForExterior.wdm.price)), PageTotal2Ele.innerText = e?.toFixed(2), e
     },
     updateQueryParams = () => {
