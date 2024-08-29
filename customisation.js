@@ -142,11 +142,11 @@ CMWrapperEle.addEventListener("click", (e => {
         } FinalValuesForExterior.wdm = a, updateImageByType("wdm", a.value), updatePageTotal2(), updateQueryParams()
 }));
 const updatePageTotal = () => {
-        let e = 1200;
-        return "" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
+        let e = 0;
+        return "1200" !== FinalValuesForInteriors.cm.price && (e += parseFloat(FinalValuesForInteriors.cm.price)), "" !== FinalValuesForInteriors.wm.price && (e += parseFloat(FinalValuesForInteriors.wm.price)), "" !== FinalValuesForInteriors.fm.price && (e += parseFloat(FinalValuesForInteriors.fm.price)), PageTotalEle.innerText = e?.toFixed(2), e
     },
     updatePageTotal2 = () => {
-        let e = 1200;
+        let e = 0;
         return "" !== FinalValuesForExterior.acpm.price && (e += parseFloat(FinalValuesForExterior.acpm.price)), "" !== FinalValuesForExterior.wdm.price && (e += parseFloat(FinalValuesForExterior.wdm.price)), PageTotal2Ele.innerText = e?.toFixed(2), e
     },
     updateQueryParams = () => {
